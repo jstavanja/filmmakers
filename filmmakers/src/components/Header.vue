@@ -15,8 +15,24 @@
     export default {
         data() {
             return {
-                navLinks: [{name: "Hot"}, {name: "Marketplace"}, {name: "Editor's picks"}, {name: "Stories"}, {name: "People"}]
+                navLinks: []
             }
+        },
+        methods: {
+            fetchNavigationItems() {
+
+                // Call firebase and set the navLinks object
+                this.$http.get('https://filmmakers-a9a57.firebaseio.com/navbar.json')
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data => {
+                        this.navLinks = data;
+                    });
+            }
+        },
+        created() {
+            this.fetchNavigationItems();
         }
     }
 </script>
