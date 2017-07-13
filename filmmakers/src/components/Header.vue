@@ -38,8 +38,6 @@
 </script>
 
 <style lang="scss" scoped>
-    // fontface import
-    @import url('https://fonts.googleapis.com/css?family=Rasa');
 
     .navbar {
 
