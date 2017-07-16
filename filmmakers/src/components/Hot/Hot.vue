@@ -1,6 +1,6 @@
 <template>
     <div class="page-content">
-        <app-post v-for="(post, index) in posts" :post="post" :key="indexgi"></app-post>
+        <app-post v-for="(post, index) in posts" :post="post" :key="index"></app-post>
     </div>
 </template>
 

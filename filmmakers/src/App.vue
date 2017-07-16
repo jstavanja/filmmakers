@@ -30,7 +30,10 @@ export default {
   @import "settings.scss";
 
   // fontface import
-  @import url('https://fonts.googleapis.com/css?family=Rasa');
+  @import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+  body, html {
+    font-family: 'Zilla Slab', serif;
+  }
 
 
 </style>

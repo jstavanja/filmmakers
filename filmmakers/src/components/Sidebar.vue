@@ -3,23 +3,23 @@
         <div class="sidebar hidden-xs">
             <div class="user-info">
                 <div class="user-avatar"></div>
+                <br>
                 <div class="user-text">Welcome {{ user.username }} :)</div>
             </div>
             <div class="links">
-                <ul>
-                    <li><i class="icon ion-email"></i></ion-icon><a href="#">Messages</a></li>
-                    <li><i class="icon ion-gear-a"></i><a href="#">Settings</a></li>
-                </ul>
+                <div class="list-group">
+                    <button type="button" class="list-group-item"><i class="icon ion-email"></i> Messages</button>
+                    <button type="button" class="list-group-item"><i class="icon ion-gear-a"></i> Settings</button>
+                </div>
             </div>
+            <hr>
             <div class="following">
-                <div class="heading-text">
-                    Following:
-                </div>
-                <div class="followed-list">
-                    <ul v-for="followed in user.followedList">
-                        <li><span class="dot new-posts"></span>{{ followed.name }}</li>
-                    </ul>
-                </div>
+                <h3 class="text-center">Following:</h3>
+                <ul class="list-group">
+                    <li v-for="(followed, index) in user.followedList" class="list-group-item">
+                        {{ followed.name }}<span class="badge">{{ index }}</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -34,15 +34,15 @@
                     <li><i class="icon ion-gear-a"></i></li>
                 </ul>
             </div>
+            <hr>
             <div class="following">
-                <div class="heading-text">
-                    Following:
-                </div>
-                <div class="followed-list">
-                    <ul v-for="followed in user.followedList">
-                        <li><span class="dot new-posts"></span>{{ followed.name }}</li>
-                    </ul>
-                </div>
+                <h5 class="text-center">Following:</h5>
+                <ul class="list-group">
+                    <li v-for="followed in user.followedList" class="list-group-item">
+                        <!-- TODO: Implement user avatars -->
+                        <img class="sidebar-following-avatar" src="http://centrum-it.com/wp-content/uploads/avatar-1.png" alt="">
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
         width: 100%;
 
         background: $bootstrap-grey;
-        font-family: 'Helvetica', serif;
+
 
         padding-top: 30px;
         .user-info {
@@ -98,7 +98,6 @@
             }
         }
         .links, .following {
-            border: 1px solid rgba(black, 0.5);
             margin: 10px;
             padding: 10px;
         }
@@ -121,34 +120,8 @@
             }
         }
         .following {
-            .heading-text {
-                padding-bottom: 5px;
-                border-bottom: 1px solid black;
-            }
-            .followed-list {
-                ul {
-                    padding: 0;
-                    li {
-                        height: 20px;
-                        .dot {
-                            display: inline-block;
-                            height: 5px;
-                            width: 5px;
-                            border-radius: 50%;
-                            margin-right: 5px;
-                            margin-bottom: 3px;
-                            &.new-posts {
-                                background-color: limegreen;
-                            }
-                            &.no-new-posts {
-                                background-color: indianred;
-                            }
-                        }
-                        display: inline-block;
-                        list-style-type: none;
-                        margin-bottom: 5px;
-                    }
-                }
+            .sidebar-following-avatar {
+                height: 20px;
             }
         }
     }
@@ -156,6 +129,13 @@
     @media (max-width: 768px) {
         // screen-sm
         .sidebar-wrapper {
+            .user-info {
+                .user-avatar {
+                    height: 50px;
+                    width: 50px;
+                }
+            }
+
             width: 100px;
             .icon {
                 font-size: 32px;
