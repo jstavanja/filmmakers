@@ -43,9 +43,8 @@
         left: 0;
         top: 0;
         bottom: 0;
-        margin-top: 71px; // header height is 50px + 2*10px padding + 1px border
+        margin-top: 50px; // header height is 50px + 2*10px padding + 1px border
         width: 20%;
-        min-width: 200px;
 
         box-shadow: 5px 5px 10px rgba(black, 0.3);
         font-family: 'Helvetica', serif;
