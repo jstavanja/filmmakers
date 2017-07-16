@@ -1,26 +1,53 @@
 <template>
-    <div class="sidebar">
-        <div class="user-info">
-            <div class="user-avatar"></div>
-            <div class="user-text">Welcome {{ user.username }} :)</div>
-        </div>
-        <div class="links">
-            <ul>
-                <li><i class="icon ion-email"></i></ion-icon><a href="#">Messages</a></li>
-                <li><i class="icon ion-gear-a"></i><a href="#">Settings</a></li>
-            </ul>
-        </div>
-        <div class="following">
-            <div class="heading-text">
-                Following:
+    <div>
+        <div class="sidebar hidden-xs">
+            <div class="user-info">
+                <div class="user-avatar"></div>
+                <div class="user-text">Welcome {{ user.username }} :)</div>
             </div>
-            <div class="followed-list">
-                <ul v-for="followed in user.followedList">
-                    <li><span class="dot new-posts"></span>{{ followed.name }}</li>
+            <div class="links">
+                <ul>
+                    <li><i class="icon ion-email"></i></ion-icon><a href="#">Messages</a></li>
+                    <li><i class="icon ion-gear-a"></i><a href="#">Settings</a></li>
                 </ul>
+            </div>
+            <div class="following">
+                <div class="heading-text">
+                    Following:
+                </div>
+                <div class="followed-list">
+                    <ul v-for="followed in user.followedList">
+                        <li><span class="dot new-posts"></span>{{ followed.name }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar for smaller displays -->
+        <div class="sidebar hidden-sm hidden-md hidden-lg">
+            <div class="user-info">
+                <div class="user-avatar"></div>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><i class="icon ion-email"></i></ion-icon></li>
+                    <li><i class="icon ion-gear-a"></i></li>
+                </ul>
+            </div>
+            <div class="following">
+                <div class="heading-text">
+                    Following:
+                </div>
+                <div class="followed-list">
+                    <ul v-for="followed in user.followedList">
+                        <li><span class="dot new-posts"></span>{{ followed.name }}</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
+
 </template>
 
 <script>
@@ -38,6 +65,7 @@
 </script>
 
 <style lang="scss" scoped>
+    @import "../vars";
     .sidebar {
         position: fixed;
         left: 0;
@@ -45,7 +73,9 @@
         bottom: 0;
         margin-top: 50px; // header height is 50px + 2*10px padding + 1px border
         width: 20%;
+        max-width: 200px;
 
+        background: $bootstrap-grey;
         box-shadow: 5px 5px 10px rgba(black, 0.3);
         font-family: 'Helvetica', serif;
 
@@ -117,6 +147,13 @@
                     }
                 }
             }
+        }
+    }
+    
+    @media (max-width: 768px) {
+        // screen-sm
+        .icon {
+            font-size: 32px;
         }
     }
 </style>
