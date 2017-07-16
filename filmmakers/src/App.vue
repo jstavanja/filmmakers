@@ -25,6 +25,12 @@ export default {
 </script>
 
 <style lang="scss">
-    // fontface import
-    @import url('https://fonts.googleapis.com/css?family=Rasa');
+
+  // import site defaults
+  @import "settings.scss";
+
+  // fontface import
+  @import url('https://fonts.googleapis.com/css?family=Rasa');
+
+
 </style>

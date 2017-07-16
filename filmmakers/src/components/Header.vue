@@ -65,5 +65,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .navbar {
+        margin-bottom: 0px;
+    }
 </style>

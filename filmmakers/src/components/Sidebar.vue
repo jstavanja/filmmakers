@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="sidebar-wrapper">
         <div class="sidebar hidden-xs">
             <div class="user-info">
                 <div class="user-avatar"></div>
@@ -66,22 +66,25 @@
 
 <style lang="scss" scoped>
     @import "../vars";
-    .sidebar {
+    .sidebar-wrapper {
+        margin-top: 50px;
+        height: calc(100vh - 50px);
+        float: left;
+        width: 200px;
         position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        margin-top: 50px; // header height is 50px + 2*10px padding + 1px border
-        width: 20%;
-        max-width: 200px;
+    }
+    .sidebar {
+
+        height: 100%;
+        width: 100%;
 
         background: $bootstrap-grey;
-        box-shadow: 5px 5px 10px rgba(black, 0.3);
         font-family: 'Helvetica', serif;
 
+        padding-top: 30px;
         .user-info {
             .user-avatar {
-                margin: 30px auto;
+                margin: 0 auto;
                 background: url("../assets/avatar.jpg") center center no-repeat;
                 background-size: cover;
                 width: 100px;
@@ -152,8 +155,11 @@
     
     @media (max-width: 768px) {
         // screen-sm
-        .icon {
-            font-size: 32px;
+        .sidebar-wrapper {
+            width: 100px;
+            .icon {
+                font-size: 32px;
+            }
         }
     }
 </style>

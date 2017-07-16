@@ -1,0 +1,13 @@
+.page-content {
+  margin-top: 50px;
+  padding: 20px;
+  float: right;
+  width: calc(100vw - 200px - 15px); // 15px is scrollbar
+  height: calc(100vh - 50px);
+}
+@media (max-width: 768px) {
+  // screen sm
+  .page-content {
+    width: calc(100vw - 100px - 15px);
+  }
+}
