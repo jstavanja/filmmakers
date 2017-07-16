@@ -1,7 +1,7 @@
 <template>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">{{ post.title }}</h3>
+            <span class="panel-title">{{ post.title }}</span><small> | Date added: {{ post.date }}</small>
         </div>
         <div class="panel-body">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -11,7 +11,7 @@
                 <div class="row text-center">
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <div class="voting-score">
-                            <p>736</p>
+                            <p>{{ post.score }}</p>
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
