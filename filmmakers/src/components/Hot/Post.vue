@@ -3,8 +3,21 @@
         <div class="panel-heading">
             <h3 class="panel-title">{{ post.title }}</h3>
         </div>
-        <div class="panel-body">
-            {{ post.content }}
+        <div class="panel-body voting">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                <div class="voting-score">
+                    <p>736</p>
+                </div>
+            </div>
+            <div class="col-git xs-1 col-sm-1 col-md-1 col-lg-1">
+                <div class="voting-section">
+                    <div class="vote-plus"><i class="ion-plus-round"></i></div>
+                    <div class="vote-minus"><i class="ion-minus-round"></i></div>
+                </div>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                {{ post.content }}
+            </div>
         </div>
     </div>
 </template>
@@ -14,3 +27,23 @@
         props: ['post']
     }
 </script>
+
+<style lang="scss" scoped>
+    .panel {
+        .panel-body {
+            .voting {
+                .voting-score {
+                    font-size: 22px;
+                    float: left;
+                }
+                .voting-section {
+                    height: 100%;
+                    .vote-plus, .vote-minus {
+                        height: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+</style>

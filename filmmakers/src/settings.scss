@@ -11,3 +11,15 @@
     width: calc(100vw - 100px - 15px);
   }
 }
+
+// Sidebar takes up too much space on smaller devices
+// TODO: Add sidebar functionality to top navbar
+
+@media (max-width: 550px) {
+  .sidebar-wrapper {
+    display: none;
+  }
+  .page-content {
+    width: 100%;
+  }
+}
