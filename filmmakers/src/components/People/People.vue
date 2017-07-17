@@ -6,8 +6,9 @@
                 <p>Discover new people that are creating amazing things.</p>
             </div>
         </div>
+        <app-loading-spinner v-if="loadingItems"></app-loading-spinner>
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" v-for="(person, index) in people">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" v-for="(person, index) in people" :key="index">
                 <app-person :person="person"></app-person>
             </div>
         </div>
@@ -16,22 +17,27 @@
 
 <script>
     import Person from './Person.vue';
+    import LoadingSpinner from '../LoadingSpinner.vue';
 
     export default {
         data() {
             return {
-                people: []
+                people: [],
+                loadingItems: true // start the loading spinner animation
             }
         },
         methods: {
             fetchPeople() {
                 this.$http.get('people.json')
                     .then(data => data.json())
-                    .then(result => this.people = result);
+                    .then(result => {
+                        this.people = result;
+                        this.loadingItems = false; // stop the loading spinner animation
+                    });
             }
         },
         components: {
-          appPerson: Person
+            appPerson: Person
         },
         created() {
             this.fetchPeople();

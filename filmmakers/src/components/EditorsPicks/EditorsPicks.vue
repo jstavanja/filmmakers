@@ -13,6 +13,7 @@
                 </div>
             </div>
         </div>
+        <app-loading-spinner v-if="loadingItems"></app-loading-spinner>
         <div class="row">
             <div v-for="(pick, index) in editorsPicks" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" :key="index">
                 <app-post :post="pick"></app-post>
@@ -23,10 +24,13 @@
 
 <script>
     import Post from '../Post.vue';
+    import LoadingSpinner from '../LoadingSpinner.vue';
+
     export default {
         data() {
             return {
-                editorsPicks: []
+                editorsPicks: [],
+                loadingItems: true
             }
         },
         methods: {
@@ -37,6 +41,7 @@
                     })
                     .then(data => {
                         this.editorsPicks = data;
+                        this.loadingItems = false;
                     });
             }
         },

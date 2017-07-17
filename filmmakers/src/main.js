@@ -9,6 +9,7 @@ import App from './App.vue'
 
 import Header from './components/Header.vue';
 import Sidebar from './components/Sidebar.vue';
+import LoadingSpinner from './components/LoadingSpinner.vue';
 
 // Importing routes
 import { routes } from './routes';
@@ -29,6 +30,7 @@ Vue.http.options.root = 'https://filmmakers-a9a57.firebaseio.com';
 // Components
 Vue.component('app-header', Header);
 Vue.component('app-sidebar', Sidebar);
+Vue.component('app-loading-spinner', LoadingSpinner);
 
 // Router
 Vue.use(VueRouter);
