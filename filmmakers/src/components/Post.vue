@@ -6,7 +6,7 @@
         <div class="panel-body">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <div class="row">
-                    <img src="../../assets/avatar.jpg" alt="" class="post-thumbnail">
+                    <img src="../assets/avatar.jpg" alt="" class="post-thumbnail">
                 </div>
                 <div class="row text-center">
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

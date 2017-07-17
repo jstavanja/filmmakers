@@ -6,7 +6,7 @@ import Stories from './components/Stories/Stories.vue';
 import People from './components/People/People.vue';
 
 export const routes = [
-    { path: '', component: Home},
+    { path: '', redirect: '/hot'},
     { path: '/hot', component: Hot},
     { path: '/marketplace', component: Marketplace},
     { path: '/editorspicks', component: EditorsPicks},
