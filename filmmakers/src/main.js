@@ -24,6 +24,7 @@ import VueResource from 'vue-resource';
 
 // Vue Resource
 Vue.use(VueResource);
+Vue.http.options.root = 'https://filmmakers-a9a57.firebaseio.com';
 
 // Components
 Vue.component('app-header', Header);

@@ -15,7 +15,7 @@
         },
         methods: {
             fetchHotPosts() {
-                this.$http.get('https://filmmakers-a9a57.firebaseio.com/hot-posts.json')
+                this.$http.get('hot-posts.json')
                     .then(response => {
                         return response.json();
                     })

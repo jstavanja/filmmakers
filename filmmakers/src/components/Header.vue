@@ -49,7 +49,7 @@
             fetchNavigationItems() {
 
                 // Call firebase and set the navLinks object
-                this.$http.get('https://filmmakers-a9a57.firebaseio.com/navbar.json')
+                this.$http.get('navbar.json')
                     .then(response => {
                         return response.json();
                     })

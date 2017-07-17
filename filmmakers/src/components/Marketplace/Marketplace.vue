@@ -15,7 +15,7 @@
         },
         methods: {
           fetchMarketplaceItems() {
-              this.$http.get('https://filmmakers-a9a57.firebaseio.com/marketplace-items.json')
+              this.$http.get('marketplace-items.json')
                   .then((data) => data.json())
                   .then((result) => this.items = result);
           }
