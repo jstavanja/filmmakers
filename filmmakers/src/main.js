@@ -14,10 +14,14 @@ import LoadingSpinner from './components/LoadingSpinner.vue';
 // Importing routes
 import { routes } from './routes';
 
+// Importing Vuex store
+import store from './store';
+
 // Vue plugins import
 
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
+
 
 /*********
     SETUP
@@ -40,7 +44,8 @@ const router = new VueRouter({
 });
 
 new Vue({
-  el: '#app',
-  router,
-  render: h => h(App)
+    el: '#app',
+    router,
+    store,
+    render: h => h(App)
 })

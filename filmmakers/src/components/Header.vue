@@ -22,14 +22,10 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">JuanPedro74 <span class="caret"></span></a>
+                    <li class="dropdown"  v-bind:class="{ 'open': dropdownOpen }">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" @click="toggleDropdown">Testing dropdown<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#" @click="userLogIn">Log user in</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -42,7 +38,8 @@
     export default {
         data() {
             return {
-                navLinks: []
+                navLinks: [],
+                dropdownOpen: false
             }
         },
         methods: {
@@ -56,6 +53,12 @@
                     .then(data => {
                         this.navLinks = data;
                     });
+            },
+            toggleDropdown() {
+                this.dropdownOpen = !this.dropdownOpen;
+            },
+            userLogIn() {
+                this.$store.dispatch('userLogIn', {username: 'JuanPedro74', fullName: 'Juan Pedro'});
             }
         },
         created() {
@@ -75,7 +78,7 @@
             }
         }
 
-        .navbar-nav {
+        .nav.navbar-nav {
             a {
                 color: white;
 
@@ -86,5 +89,20 @@
                 }
             }
         }
+
+
+        .nav.navbar-nav.navbar-right {
+            .dropdown-toggle {
+                background: transparent !important;
+            }
+            ul {
+                li {
+                    a {
+                        color: #0a0a0a;
+                    }
+                }
+            }
+        }
     }
+
 </style>
