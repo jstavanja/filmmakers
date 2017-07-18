@@ -46,7 +46,7 @@
 </script>
 
 <style lang="scss" scoped>
-    .panel {
+    .panel-body {
         padding-left: 30px;
     }
 </style>

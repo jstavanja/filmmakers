@@ -57,7 +57,9 @@
 
 <style lang="scss" scoped>
     .panel {
-        padding-left: 30px;
+        .panel-body, .top-jumbotron{
+            padding-left: 30px;
+        }
 
         .col-xs-3 {
             height: 100%;
