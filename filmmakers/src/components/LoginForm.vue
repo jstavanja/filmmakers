@@ -10,8 +10,9 @@
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="pwd" v-model="password">
             </div>
-            <button type="submit" class="btn btn-default" @click.prevent="submitSignIn">Submit</button>
+            <button type="submit" class="btn btn-success" @click.prevent="submitSignIn">Submit</button>
         </form>
+        <router-link to="/signup" tag="button" class="btn btn-info" id="create-account-button">Create account</router-link>
     </div>
 </template>
 
@@ -50,10 +51,8 @@
     }
 </script>
 
-<style lang="scss">
-    .hidden-sm {
-        .btn {
-            margin-left: -10px;
-        }
+<style lang="scss" scoped>
+    #create-account-button {
+        margin-top: 10px;
     }
 </style>

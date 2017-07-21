@@ -30,6 +30,9 @@
             },
             fullName() {
                 return this.$store.getters.fullName;
+            },
+            loggedIn() {
+                return this.$store.getters.loggedIn;
             }
         },
         methods: {
@@ -45,6 +48,11 @@
                     });
                 }
 
+            }
+        },
+        created() {
+            if (!this.loggedIn) {
+                this.$router.push('/');
             }
         }
     }
