@@ -7,7 +7,7 @@ import LoginPage from './components/LoginPage.vue';
 import Settings from './components/Settings/Settings.vue';
 
 export const routes = [
-    { path: '', redirect: '/hot'},
+    { path: '/', component: Hot},
     { path: '/hot', component: Hot},
     { path: '/marketplace', component: Marketplace},
     { path: '/editorspicks', component: EditorsPicks},

@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="../assets/logo.png" alt=""></a>
+                <router-link to="/" class="navbar-brand" tag="a"><img src="../assets/logo.png" alt=""></router-link>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
