@@ -38,7 +38,6 @@
                     auth.currentUser.updateEmail(this.newEmail);
                 }
                 if (this.newFullName) {
-                    console.log("welcome to the jungle")
                     auth.currentUser.updateProfile({
                         displayName: this.newFullName
                     }).then(() => {
