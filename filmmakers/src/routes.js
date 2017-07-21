@@ -3,7 +3,8 @@ import Marketplace from './components/Marketplace/Marketplace.vue';
 import EditorsPicks from './components/EditorsPicks/EditorsPicks.vue';
 import Stories from './components/Stories/Stories.vue';
 import People from './components/People/People.vue';
-import LoginPage from './components/LoginPage.vue'
+import LoginPage from './components/LoginPage.vue';
+import Settings from './components/Settings/Settings.vue';
 
 export const routes = [
     { path: '', redirect: '/hot'},
@@ -12,5 +13,6 @@ export const routes = [
     { path: '/editorspicks', component: EditorsPicks},
     { path: '/stories', component: Stories},
     { path: '/people', component: People},
-    { path: '/login', component: LoginPage }
+    { path: '/login', component: LoginPage },
+    { path: '/settings', component: Settings }
 ];

@@ -1,12 +1,12 @@
 const state = {
     loggedIn: false,
-    username: '',
+    email: '',
     fullName: ''
 };
 
 const getters = {
     isLoggedIn: state => state.loggedIn,
-    username: state => state.username,
+    email: state => state.email,
     fullName: state => state.fullName
 };
 
@@ -20,7 +20,7 @@ const mutations = {
     'USER_LOG_IN' (state, payload) {
         // TODO: Implement firebase auth logic
         state.loggedIn = true;
-        state.username = payload.username;
+        state.email = payload.email;
         state.fullName = payload.fullName;
     }
 }

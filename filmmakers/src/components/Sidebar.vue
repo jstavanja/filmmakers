@@ -13,7 +13,7 @@
                 <div class="links">
                     <div class="list-group">
                         <button type="button" class="list-group-item"><i class="icon ion-email"></i> Messages</button>
-                        <button type="button" class="list-group-item"><i class="icon ion-gear-a"></i> Settings</button>
+                        <router-link to="/settings" class="list-group-item" tag="button"><i class="icon ion-gear-a"></i> Settings</router-link>
                     </div>
                 </div>
                 <hr>
