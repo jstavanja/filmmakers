@@ -11,17 +11,47 @@
 <script>
 import Header from './components/Header.vue';
 import Sidebar from './components/Sidebar.vue';
+import auth from './auth';
+
 
 export default {
   name: 'app',
   data: function () {
     return {
+      auth
+    }
+  },
+  methods: {
+    listenToUserChange() {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in.
+          const displayName = user.displayName;
+          const email = user.email;
+          /* TODO: Implement more user parameters
+          const emailVerified = user.emailVerified;
+          const photoURL = user.photoURL;
+          const isAnonymous = user.isAnonymous;
+          const uid = user.uid;
+          const providerData = user.providerData;
+          console.log(user);
 
+          */
+
+          this.$store.dispatch('userLogIn', {email: email, fullName: displayName});
+
+        } else {
+          // console.log("Signed out");
+        }
+      });
     }
   },
   components: {
       appHeader: Header,
       appSidebar: Sidebar
+  },
+  created() {
+      this.listenToUserChange();
   }
 }
 </script>

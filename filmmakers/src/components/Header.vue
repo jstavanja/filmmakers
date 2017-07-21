@@ -25,7 +25,7 @@
                     <li class="dropdown"  v-bind:class="{ 'open': dropdownOpen }">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" @click="toggleDropdown">Testing dropdown<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" @click="userLogIn">Log user in</a></li>
+                            <li><a href="#" @click="userLogOut">Log out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+    import auth from '../auth';
     export default {
         data() {
             return {
@@ -57,8 +58,9 @@
             toggleDropdown() {
                 this.dropdownOpen = !this.dropdownOpen;
             },
-            userLogIn() {
-                this.$store.dispatch('userLogIn', {username: 'JuanPedro74', fullName: 'Juan Pedro'});
+            userLogOut() {
+                auth.signOut();
+                window.location.reload();
             }
         },
         created() {

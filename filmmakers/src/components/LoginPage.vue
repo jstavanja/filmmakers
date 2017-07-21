@@ -1,6 +1,6 @@
 <template>
     <div class="page-content">
-        <app-login-form class="login-form"></app-login-form>
+        <app-login-form class="login-form" isComingFrom="loginPage"></app-login-form>
     </div>
 </template>
 
