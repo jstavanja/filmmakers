@@ -5,7 +5,7 @@ const state = {
 };
 
 const getters = {
-    isLoggedIn: state => state.loggedIn,
+    loggedIn: state => state.loggedIn,
     email: state => state.email,
     fullName: state => state.fullName
 };

@@ -74,7 +74,7 @@
         },
         computed: {
             isLoggedIn() {
-                return this.$store.getters.isLoggedIn;
+                return this.$store.getters.loggedIn;
             },
             username() {
                 return this.$store.getters.username;
