@@ -54,7 +54,7 @@
             }
         },
         created() {
-            if (!this.loggedIn) {
+            if (this.loggedIn) {
                 this.$router.push('/');
             }
         }
