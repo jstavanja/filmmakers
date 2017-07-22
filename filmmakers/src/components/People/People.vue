@@ -18,6 +18,7 @@
 <script>
     import Person from './Person.vue';
     import LoadingSpinner from '../LoadingSpinner.vue';
+    import fire from '../../firebase';
 
     export default {
         data() {
@@ -28,12 +29,10 @@
         },
         methods: {
             fetchPeople() {
-                this.$http.get('people.json')
-                    .then(data => data.json())
-                    .then(result => {
-                        this.people = result;
-                        this.loadingItems = false; // stop the loading spinner animation
-                    });
+                fire.db.ref('people').on('value', (content) => {
+                    this.people = content.val();
+                    this.loadingItems = false;
+                });
             }
         },
         components: {

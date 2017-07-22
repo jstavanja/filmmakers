@@ -13,4 +13,7 @@ firebase.initializeApp(config);
 let db = firebase.database();
 let auth = firebase.auth();
 
-export default auth;
+export default {
+    db,
+    auth
+};

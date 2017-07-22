@@ -35,7 +35,7 @@
 </template>
 
 <script>
-    import auth from '../auth';
+    import fire from '../firebase';
     export default {
         data() {
             return {
@@ -45,22 +45,16 @@
         },
         methods: {
             fetchNavigationItems() {
-
-                // Call firebase and set the navLinks object
-                this.$http.get('navbar.json')
-                    .then(response => {
-                        return response.json();
-                    })
-                    .then(data => {
-                        this.navLinks = data;
-                    });
+                fire.db.ref('navbar').on('value', (content) => {
+                    this.navLinks = content.val();
+                });
             },
             toggleDropdown() {
                 this.dropdownOpen = !this.dropdownOpen;
             },
             userLogOut() {
-                auth.signOut();
-                auth.currentUser.reload();
+                fire.auth.signOut();
+                fire.auth.currentUser.reload();
 //                window.location.reload();
             }
         },

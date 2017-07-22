@@ -10,6 +10,7 @@
 <script>
     import Story from './Story.vue';
     import LoadingSpinner from '../LoadingSpinner.vue';
+    import fire from '../../firebase';
 
     export default {
         data() {
@@ -20,12 +21,10 @@
         },
         methods: {
           fetchStories() {
-              this.$http.get('stories.json')
-                  .then(data => data.json())
-                  .then(result => {
-                      this.stories = result;
-                      this.loadingItems = false;
-                  });
+              fire.db.ref('stories').on('value', (content) => {
+                  this.stories = content.val();
+                  this.loadingItems = false;
+              });
           }
         },
         components: {

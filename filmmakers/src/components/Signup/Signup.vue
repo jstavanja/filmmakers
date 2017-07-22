@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import auth from '../../auth';
+    import fire from '../../firebase';
     export default {
         data() {
             return {
@@ -37,7 +37,7 @@
         },
         methods: {
             createUser() {
-                auth.createUserWithEmailAndPassword(this.email, this.password).catch((error) => {
+                fire.auth.createUserWithEmailAndPassword(this.email, this.password).catch((error) => {
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     if (errorCode == 'auth/weak-password') {
@@ -47,7 +47,7 @@
                     }
                     console.log(error);
                 }).then(() => {
-                    auth.currentUser.updateProfile({displayName: this.fullName});
+                    fire.auth.currentUser.updateProfile({displayName: this.fullName});
                     window.location.reload(); // TODO: find a method to only reload user data (call onAuthStateChanged)
                     this.$router.push('/');
                 });

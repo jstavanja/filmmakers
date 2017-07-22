@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import auth from '../../auth';
+    import fire from '../../firebase';
     export default {
         computed: {
             email() {
@@ -38,10 +38,10 @@
         methods: {
             saveSettings() {
                 if (this.newEmail) {
-                    auth.currentUser.updateEmail(this.newEmail);
+                    fire.auth.currentUser.updateEmail(this.newEmail);
                 }
                 if (this.newFullName) {
-                    auth.currentUser.updateProfile({
+                    fire.auth.currentUser.updateProfile({
                         displayName: this.newFullName
                     }).then(() => {
                         window.location.reload();

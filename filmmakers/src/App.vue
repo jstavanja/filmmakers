@@ -11,19 +11,19 @@
 <script>
 import Header from './components/Header.vue';
 import Sidebar from './components/Sidebar.vue';
-import auth from './auth';
+import fire from './firebase';
 
 
 export default {
   name: 'app',
   data: function () {
     return {
-      auth
+
     }
   },
   methods: {
     listenToUserChange() {
-      auth.onAuthStateChanged((user) => {
+      fire.auth.onAuthStateChanged((user) => {
         if (user) {
           // User is signed in.
           const displayName = user.displayName;
@@ -44,7 +44,7 @@ export default {
           // console.log("Signed out");
         }
       });
-      auth.onIdTokenChanged((user) => {
+      fire.auth.onIdTokenChanged((user) => {
           if (!user) {
               this.$store.dispatch('userLogOut');
           }

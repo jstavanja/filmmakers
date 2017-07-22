@@ -8,6 +8,7 @@
 <script>
     import Item from './Item.vue';
     import LoadingSpinner from '../LoadingSpinner.vue';
+    import fire from '../../firebase';
 
     export default {
         data() {
@@ -18,12 +19,10 @@
         },
         methods: {
           fetchMarketplaceItems() {
-              this.$http.get('marketplace-items.json')
-                  .then((data) => data.json())
-                  .then((result) => {
-                    this.items = result;
-                    this.loadingItems = false;
-                  });
+              fire.db.ref('marketplace-items').on('value', (content) => {
+                  this.items = content.val();
+                  this.loadingItems = false;
+              });
           }
         },
         components: {

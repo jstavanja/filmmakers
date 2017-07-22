@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    import auth from '../auth';
+    import fire from '../firebase';
 
     export default {
         props: [
@@ -34,7 +34,7 @@
                 this.userSignIn(this.email, this.password);
             },
             userSignIn(email, password) {
-                auth.signInWithEmailAndPassword(email, password).catch((error) => {
+                fire.auth.signInWithEmailAndPassword(email, password).catch((error) => {
                     console.log(email, password);
                     // Handle Errors here.
                     const errorCode = error.code;

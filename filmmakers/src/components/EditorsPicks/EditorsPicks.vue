@@ -25,6 +25,7 @@
 <script>
     import Post from '../Post.vue';
     import LoadingSpinner from '../LoadingSpinner.vue';
+    import fire from '../../firebase';
 
     export default {
         data() {
@@ -35,14 +36,10 @@
         },
         methods: {
             fetchEditorsPicks() {
-                this.$http.get('editors-picks.json')
-                    .then(response => {
-                        return response.json();
-                    })
-                    .then(data => {
-                        this.editorsPicks = data;
-                        this.loadingItems = false;
-                    });
+                fire.db.ref('editors-picks').on('value', (content) => {
+                    this.editorsPicks = content.val();
+                    this.loadingItems = false;
+                });
             }
         },
         components: {
