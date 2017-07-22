@@ -11,8 +11,11 @@ const getters = {
 };
 
 const actions = {
-    userLogIn ({commit, state}, payload) {
+    userLogIn ({commit}, payload) {
         commit('USER_LOG_IN', payload);
+    },
+    userLogOut ({commit}) {
+        commit('USER_LOG_OUT');
     }
 }
 
@@ -22,6 +25,11 @@ const mutations = {
         state.loggedIn = true;
         state.email = payload.email;
         state.fullName = payload.fullName;
+    },
+    'USER_LOG_OUT' (state) {
+        state.loggedIn = false;
+        state.email = null;
+        state.fullName = null;
     }
 }
 

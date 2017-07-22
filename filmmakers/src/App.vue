@@ -44,6 +44,11 @@ export default {
           // console.log("Signed out");
         }
       });
+      auth.onIdTokenChanged((user) => {
+          if (!user) {
+              this.$store.dispatch('userLogOut');
+          }
+      });
     }
   },
   components: {

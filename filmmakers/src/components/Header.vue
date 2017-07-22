@@ -60,7 +60,8 @@
             },
             userLogOut() {
                 auth.signOut();
-                window.location.reload();
+                auth.currentUser.reload();
+//                window.location.reload();
             }
         },
         created() {
