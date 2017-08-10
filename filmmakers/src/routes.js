@@ -6,6 +6,7 @@ import People from './components/People/People.vue';
 import LoginPage from './components/LoginPage.vue';
 import Settings from './components/Settings/Settings.vue';
 import Signup from './components/Signup/Signup.vue';
+import Admin from './components/Admin/Admin.vue';
 
 export const routes = [
     { path: '/', component: Hot},
@@ -16,5 +17,6 @@ export const routes = [
     { path: '/people', component: People},
     { path: '/login', component: LoginPage },
     { path: '/settings', component: Settings },
-    { path: '/signup', component: Signup }
+    { path: '/signup', component: Signup },
+    {path: '/admin', component: Admin}
 ];
