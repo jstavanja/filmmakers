@@ -30,23 +30,28 @@
     export default {
         data() {
             return {
+                keys: ['test'],
                 editorsPicks: [],
                 loadingItems: true
             }
         },
         methods: {
             fetchEditorsPicks() {
-                fire.db.ref('editors-picks').on('value', (content) => {
-                    this.editorsPicks = content.val();
-                    this.loadingItems = false;
+                fire.db.ref('picks').on('value', (content) => {
+                    this.keys = content.val();
+                    Object.values(this.keys).forEach((key) => {
+                        fire.db.ref('posts/' + key).on('value', (content) => {
+                            this.editorsPicks.push(content.val());
+                        });
+                    });
                 });
+                this.loadingItems = false;
             }
         },
         components: {
             appPost: Post
         },
         created() {
-
             this.fetchEditorsPicks();
         }
     }
