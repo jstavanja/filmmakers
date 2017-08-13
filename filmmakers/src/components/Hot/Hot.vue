@@ -19,8 +19,10 @@
         },
         methods: {
             fetchHotPosts() {
-                fire.db.ref('hot-posts').on('value', (content) => {
-                    this.posts = content.val();
+                let currentPostNumber = 0;
+                fire.db.ref('posts').orderByChild('score').on('child_added', (content) => {
+                    if (currentPostNumber > 10) return;
+                    this.posts.push(content.val());
                     this.loadingItems = false;
                 });
             }
@@ -30,6 +32,7 @@
         },
         created() {
             this.fetchHotPosts();
+            this.posts.reverse();
         }
     }
 </script>
