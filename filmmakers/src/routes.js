@@ -7,6 +7,7 @@ import LoginPage from './components/LoginPage.vue';
 import Settings from './components/Settings/Settings.vue';
 import Signup from './components/Signup/Signup.vue';
 import Admin from './components/Admin/Admin.vue';
+import NewPost from './components/New/NewPost.vue';
 
 export const routes = [
     { path: '/', component: Hot},
@@ -18,5 +19,6 @@ export const routes = [
     { path: '/login', component: LoginPage },
     { path: '/settings', component: Settings },
     { path: '/signup', component: Signup },
-    {path: '/admin', component: Admin}
+    { path: '/admin', component: Admin },
+    { path: '/newpost', component: NewPost }
 ];

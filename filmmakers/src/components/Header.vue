@@ -20,10 +20,16 @@
 
                         <router-link :to="navLink.url" tag="a">{{ navLink.name }}</router-link>
                     </li>
+                    <li class="dropdown"  v-bind:class="{ 'open': dropdownLeftOpen }">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" @click="toggleLeftDropdown">New<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><router-link to="/newpost" tag="a"><span @click="toggleLeftDropdown">Post</span></router-link></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown"  v-bind:class="{ 'open': dropdownOpen }">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" @click="toggleDropdown">Testing dropdown<span class="caret"></span></a>
+                    <li class="dropdown"  v-bind:class="{ 'open': dropdownRightOpen }">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" @click="toggleRightDropdown">Testing dropdown<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" @click="userLogOut">Log out</a></li>
                         </ul>
@@ -40,7 +46,8 @@
         data() {
             return {
                 navLinks: [],
-                dropdownOpen: false
+                dropdownRightOpen: false,
+                dropdownLeftOpen: false
             }
         },
         methods: {
@@ -49,8 +56,11 @@
                     this.navLinks = content.val();
                 });
             },
-            toggleDropdown() {
-                this.dropdownOpen = !this.dropdownOpen;
+            toggleRightDropdown() {
+                this.dropdownRightOpen = !this.dropdownRightOpen;
+            },
+            toggleLeftDropdown() {
+                this.dropdownLeftOpen = !this.dropdownLeftOpen;
             },
             userLogOut() {
                 fire.auth.signOut();
@@ -85,10 +95,7 @@
                     text-decoration-color: white;
                 }
             }
-        }
 
-
-        .nav.navbar-nav.navbar-right {
             .dropdown-toggle {
                 background: transparent !important;
             }
@@ -99,6 +106,7 @@
                     }
                 }
             }
+
         }
     }
 
